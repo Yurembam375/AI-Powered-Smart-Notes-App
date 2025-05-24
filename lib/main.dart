@@ -3,12 +3,14 @@ import 'package:ai_smart_app/provide/note_provider.dart';
 import 'package:ai_smart_app/screen/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:ai_smart_app/theme/app_theme.dart';
 
 import 'provide/theme_provider.dart';
 
 Future<void> main() async {
+  await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final noteProvider = NoteProvider();
